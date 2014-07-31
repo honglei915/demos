@@ -67,7 +67,9 @@ public class WordCount {
 	}
 
 	public static void main(String[] args) throws Exception {
-		System.out.print("gegin");
+
+	    System.out.println("hello 4");
+
 		String hdfspath = "hdfs://10.2.12.93:9000/user/root/";
 		Configuration conf = new Configuration();
 		String[] otherArgs = new GenericOptionsParser(conf, args)
