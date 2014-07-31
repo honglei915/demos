@@ -72,10 +72,10 @@ public class WordCount {
 		Configuration conf = new Configuration();
 		String[] otherArgs = new GenericOptionsParser(conf, args)
 				.getRemainingArgs();
-		// if (otherArgs.length != 2) {
-		// System.err.println("Usage: wordcount <in> <out>");
-		// System.exit(2);
-		// }
+		 if (otherArgs.length != 2) {
+		 System.err.println("Usage: wordcount <in> <out>");
+		 System.exit(2);
+		 }
 		Job job = new Job(conf, "word count");
 		job.setJarByClass(WordCount.class);
 		job.setMapperClass(TokenizerMapper.class);
