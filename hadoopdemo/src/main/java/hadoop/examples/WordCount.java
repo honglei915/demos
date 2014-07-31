@@ -37,9 +37,10 @@ public class WordCount {
 			Mapper<Object, Text, Text, IntWritable> {
 
 		private final static IntWritable one = new IntWritable(1);
-		private Text word = new Text();
+		private final Text word = new Text();
 
-		public void map(Object key, Text value, Context context)
+		@Override
+        public void map(Object key, Text value, Context context)
 				throws IOException, InterruptedException {
 			StringTokenizer itr = new StringTokenizer(value.toString());
 			while (itr.hasMoreTokens()) {
@@ -51,9 +52,10 @@ public class WordCount {
 
 	public static class IntSumReducer extends
 			Reducer<Text, IntWritable, Text, IntWritable> {
-		private IntWritable result = new IntWritable();
+		private final IntWritable result = new IntWritable();
 
-		public void reduce(Text key, Iterable<IntWritable> values,
+		@Override
+        public void reduce(Text key, Iterable<IntWritable> values,
 				Context context) throws IOException, InterruptedException {
 			int sum = 0;
 			for (IntWritable val : values) {
@@ -65,7 +67,7 @@ public class WordCount {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String hdfspath = "hdfs://localhost:9000/user/root/";
+		String hdfspath = "hdfs://10.2.12.93:9000/user/root/";
 		Configuration conf = new Configuration();
 		String[] otherArgs = new GenericOptionsParser(conf, args)
 				.getRemainingArgs();
