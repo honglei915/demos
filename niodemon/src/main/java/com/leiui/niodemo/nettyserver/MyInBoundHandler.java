@@ -1,73 +1,19 @@
 package com.leiui.niodemo.nettyserver;
 
-import io.netty.buffer.ChannelBuf;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandler;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
-public class MyInBoundHandler implements ChannelInboundHandler {
+public class MyInBoundHandler extends ChannelInboundHandlerAdapter {
 
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println("channelRead:" + ctx.channel().remoteAddress() + "," + msg);
+        ctx.writeAndFlush("hello," + ctx.channel().remoteAddress());
+    }
+
+    @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-
+        System.out.println("channelRegistered:" + ctx.channel().remoteAddress());
+        super.channelRegistered(ctx);
     }
-
-    public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void inboundBufferUpdated(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void beforeAdd(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void afterAdd(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void beforeRemove(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void afterRemove(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
-    public ChannelBuf newInboundBuffer(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    public void freeInboundBuffer(ChannelHandlerContext ctx, ChannelBuf buf) throws Exception {
-        // TODO Auto-generated method stub
-
-    }
-
 }
