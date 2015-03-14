@@ -23,7 +23,7 @@ public class NioClient {
 
                     @Override
                     protected void initChannel(Channel ch) throws Exception {
-                        ch.pipeline().addFirst(new ClientHandler());
+                        ch.pipeline().addLast(new ClientHandler());
                     }
                 });
         ChannelFuture f = bt.connect().sync();

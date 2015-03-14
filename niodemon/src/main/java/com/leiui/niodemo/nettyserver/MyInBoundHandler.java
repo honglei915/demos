@@ -14,6 +14,10 @@ public class MyInBoundHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channelRegistered:" + ctx.channel().remoteAddress());
-        super.channelRegistered(ctx);
+    }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channelActive:" + ctx.channel().remoteAddress());
     }
 }

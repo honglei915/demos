@@ -22,9 +22,7 @@ public class NioServer {
 
             @Override
             public void initChannel(Channel ch) throws Exception {
-                ChannelHandler handler = null;
-                ch.pipeline().addFirst(handler);
-
+                ch.pipeline().addLast(new MyInBoundHandler());
             }
 
         };
@@ -32,7 +30,6 @@ public class NioServer {
                 .childHandler(childHandler);
         ChannelFuture f = bt.bind().sync();
         f.channel().closeFuture().sync();
-
     }
 
 }
