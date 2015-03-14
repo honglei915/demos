@@ -4,6 +4,7 @@ import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -12,13 +13,15 @@ import java.net.InetSocketAddress;
 
 import com.leiui.niodemo.nettyserver.NioServer;
 
-public class NioClient {    
+public class NioClient {
 
     public void start() throws InterruptedException {
         Bootstrap bt = new Bootstrap();
         EventLoopGroup group = new NioEventLoopGroup();
 
-        bt.group(group).channel(NioSocketChannel.class).remoteAddress(new InetSocketAddress(NioServer.HOST, NioServer.PORT))
+        bt.group(group).channel(NioSocketChannel.class)
+                .remoteAddress(new InetSocketAddress(NioServer.HOST, NioServer.PORT))
+                .option(ChannelOption.TCP_NODELAY, true)
                 .handler(new ChannelInitializer<Channel>() {
 
                     @Override
