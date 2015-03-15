@@ -8,6 +8,8 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 
 import java.net.InetSocketAddress;
 
@@ -26,6 +28,8 @@ public class NioClient {
 
                     @Override
                     protected void initChannel(Channel ch) throws Exception {
+                        ch.pipeline().addLast(new StringDecoder());                       
+                        ch.pipeline().addLast(new StringEncoder());
                         ch.pipeline().addLast(new ClientHandler());
                     }
                 });

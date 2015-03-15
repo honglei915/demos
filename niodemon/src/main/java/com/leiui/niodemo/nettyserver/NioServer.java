@@ -9,6 +9,8 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 
 public class NioServer {
     //public final static String HOST = "192.168.1.112";
@@ -24,7 +26,9 @@ public class NioServer {
 
             @Override
             public void initChannel(Channel ch) throws Exception {
-                ch.pipeline().addLast(new MyInBoundHandler());
+                ch.pipeline().addLast(new StringDecoder());              
+                ch.pipeline().addLast(new StringEncoder());
+                ch.pipeline().addLast(new ServerHandler());
             }
 
         };
