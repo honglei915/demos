@@ -37,20 +37,12 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
-			
-=======
 
->>>>>>> branch 'master' of https://github.com/honglei915/demos.git
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId>
-			<version>5.0.0.Alpha1</version>
+			<version>5.0.0.Alpha2</version>
 		</dependency>
-<<<<<<< HEAD
-	<!--
-=======
->>>>>>> branch 'master' of https://github.com/honglei915/demos.git
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-example</artifactId>
