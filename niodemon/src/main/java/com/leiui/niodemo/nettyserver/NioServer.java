@@ -13,8 +13,8 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
 public class NioServer {
-    //public final static String HOST = "192.168.1.112";
-    public final static String HOST = "127.0.0.1";
+    public final static String HOST = "192.168.1.112";
+    //public final static String HOST = "127.0.0.1";
 
     public final static int PORT = 8083;
 
