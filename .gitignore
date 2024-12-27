@@ -1,0 +1,42 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+output/
+log/
+**/logs/
+**/log.path_IS_UNDEFINED
+hot_configs/
+mock_afs_root/
+config/report_json_files/bos_cache
+marspro-report/src/test/resources/json_data/common_test.json
+marspro-adaptor/src/test/resources/json_data/common_test.json
+config_cache
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+data
+### VS Code ###
+.vscode/
+.DS_Store
